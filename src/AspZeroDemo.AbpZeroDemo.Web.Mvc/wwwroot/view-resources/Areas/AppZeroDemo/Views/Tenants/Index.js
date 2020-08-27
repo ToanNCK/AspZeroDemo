@@ -26,7 +26,7 @@
             creationDateEnd: $.url('?creationDateEnd'),
             subscriptionEndDateStart: $.url('?subscriptionEndDateStart'),
             subscriptionEndDateEnd: $.url('?subscriptionEndDateEnd')
-        }
+        };
 
         var _selectedSubscriptionEndDateRange = {
             startDate: _urlParams.subscriptionEndDateStart ? moment(_urlParams.subscriptionEndDateStart) : moment().startOf('day'),
@@ -92,7 +92,7 @@
                 filter.creationDateStart = _selectedCreationDateRange.startDate;
                 filter.creationDateEnd = _selectedCreationDateRange.endDate;
             }
-            
+
             if (_$subscriptionEndDateRangeActive.prop("checked")) {
                 filter.subscriptionEndDateStart = _selectedSubscriptionEndDateRange.startDate;
                 filter.subscriptionEndDateEnd = _selectedSubscriptionEndDateRange.endDate;
@@ -104,31 +104,16 @@
         function entityHistoryIsEnabled() {
             return abp.custom.EntityHistory &&
                 abp.custom.EntityHistory.IsEnabled &&
-                _.filter(abp.custom.EntityHistory.EnabledEntities, function(entityType) {
+                _.filter(abp.custom.EntityHistory.EnabledEntities, function (entityType) {
                     return entityType === _entityTypeFullName;
                 }).length === 1;
         }
-
-        $('#TenantsTable thead tr').clone(true).appendTo('#TenantsTable thead');
-        $('#TenantsTable thead tr:eq(1) th').each(function (i) {
-            if (i > 1) {
-                var title = $(this).text();
-                $(this).html('<input type="text" id="TenantsTableFilter" placeholder="Tìm kiếm ' + title.toLowerCase() + '" />');
-
-                $('input', this).on('keyup change', function () {
-                    if (dataTable.column(i).search() !== this.value) {
-                        $('#TenantsTableFilter').val(this.value);
-                        dataTable.draw();
-                    }
-                });
-            }
-        });
 
         var dataTable = _$tenantsTable.DataTable({
             paging: true,
             serverSide: true,
             processing: true,
-            TenaorderCellsTop: true,
+            orderCellsTop: true,
             fixedHeader: true,
             listAction: {
                 ajaxFunction: _tenantService.getTenants,
@@ -276,7 +261,32 @@
                         return moment(creationTime).format('L');
                     }
                 }
-            ]
+            ],
+            initComplete: function () {
+	            //setLblFileter();
+                $('#TenantsTable thead tr:eq(1) th').each(function (i) {
+                    if (i === 0) {
+                        $(this).css('display', 'none');
+                    }
+
+                    $('input,select', this).on('change', function () {
+	                    setLblFileter();
+                        dataTable.draw();
+                    });
+                });
+
+                $(document).on('click', '#lbl-loc .remove-lbl-loc', function () {
+	                var isParent = $(this).parent('.display-flex');
+                    var id = '#' + isParent.data('loc');
+                    isParent.remove();
+	                $(id).val('');
+	                if ($(id).hasClass('edited')) {
+		                $(id).val('-1');
+	                }
+
+	                dataTable.draw();
+                });
+            }
         });
 
         function getQueryStringParameter(name) {
@@ -350,5 +360,25 @@
         });
 
         $('#TenantsTableFilter').focus();
+
+        function setLblFileter() {
+	        $('#lbl-loc').empty();
+            $('#lbl-loc').append('<h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Lọc:</h5>');
+            $('#TenantsFormFilter th > input, #TenantsFormFilter th > select').each(function () {
+                var textString = '';
+                if (!$(this).hasClass('edited')) {
+	                textString = $(this).val();
+                } else {
+                    textString = $('#' + $(this).attr('id') + ' option:selected').text();
+                }
+		        var html = '<div class="display-flex" data-loc="' + $(this).attr('id') + '"> ' +
+                    '<h5 class="text-dark font-weight-bold mt-2 mb-2 lbl-loc-text ml-5">' + textString + '</h5> ' +
+			        '<h5 class="font-weight-bold mt-2 mb-2 remove-lbl-loc">X</h5> ' +
+			        '</div>';
+                if (textString && $(this).attr('id')) {
+			        $('#lbl-loc').append(html);
+		        }
+	        });
+        }
     });
 })();

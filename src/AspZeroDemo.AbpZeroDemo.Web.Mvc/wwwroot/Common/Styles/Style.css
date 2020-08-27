@@ -1,0 +1,19 @@
+﻿.display-flex {
+    display: flex;
+}
+
+.remove-lbl-loc {
+    border: 1px solid #eee;
+    padding: 1px 10px;
+    border-radius: 0 4px 4px 0;
+    background: red;
+    color: white;
+    cursor: pointer;
+}
+
+.lbl-loc-text {
+    border: 1px solid #eee;
+    padding: 1px 10px;
+    border-radius: 4px 0 0 4px;
+    background: #eee;
+}

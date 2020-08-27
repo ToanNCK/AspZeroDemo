@@ -33,7 +33,7 @@
                             <div class="form">
                                 <div id="TenantsFormFilter">
                                     <div class="row mb-4">
-                                        <div class="col-xl-6">
+                                        @*<div class="col-xl-6">
                                             <label for="TenantsTableFilter">@L("TenantNameOrTenancyCode")</label>
                                             <div class="input-group">
                                                 <input id="TenantsTableFilter" class="form-control" type="text" value="@ViewBag.FilterText" placeholder="@L("SearchWithThreeDot")" aria-describedby="basic-addon2">
@@ -43,7 +43,7 @@
                                                     </button>
                                                 </span>
                                             </div>
-                                        </div>
+                                        </div>*@
                                         <div class="col-xl-6">
                                             <label for="EditionDropdown">@L("Edition")</label>
                                             @Html.DropDownList("EditionDropdown", Model.EditionItems.Select(i => i.ToSelectListItem()), new {@class = "form-control edited"})

@@ -3,7 +3,7 @@
 
         var _tenantService = abp.services.app.tenant;
         var _$tenantsTable = $("#TenantsTable");
-        var _$tenantsTableFilter = $('#TenantsTableFilter');
+        //var $('#TenantsTableFilter') = $('#TenantsTableFilter');
         var _$tenantsFormFilter = $('#TenantsFormFilter');
         var _$subscriptionEndDateRangeActive = $("#TenantsTable_SubscriptionEndDateRangeActive");
         var _$subscriptionEndDateRange = _$tenantsFormFilter.find("input[name='SubscriptionEndDateRange']");
@@ -83,7 +83,7 @@
             var editionId = _$editionDropdown.find(":selected").val();
 
             var filter = {
-                filter: _$tenantsTableFilter.val(),
+                filter: $('#TenantsTableFilter').val(),
                 editionId: editionId,
                 editionIdSpecified: editionId !== "-1"
             };
@@ -92,7 +92,7 @@
                 filter.creationDateStart = _selectedCreationDateRange.startDate;
                 filter.creationDateEnd = _selectedCreationDateRange.endDate;
             }
-
+            
             if (_$subscriptionEndDateRangeActive.prop("checked")) {
                 filter.subscriptionEndDateStart = _selectedSubscriptionEndDateRange.startDate;
                 filter.subscriptionEndDateEnd = _selectedSubscriptionEndDateRange.endDate;
@@ -111,23 +111,25 @@
 
         $('#TenantsTable thead tr').clone(true).appendTo('#TenantsTable thead');
         $('#TenantsTable thead tr:eq(1) th').each(function (i) {
-            var title = $(this).text();
-            $(this).html('<input type="text" placeholder="Tìm kiếm ' + title + '" />');
+            if (i > 1) {
+                var title = $(this).text();
+                $(this).html('<input type="text" id="TenantsTableFilter" placeholder="Tìm kiếm ' + title.toLowerCase() + '" />');
 
-            $('input', this).on('keyup change', function () {
-                if (table.column(i).search() !== this.value) {
-                    table
-                        .column(i)
-                        .search(this.value)
-                        .draw();
-                }
-            });
+                $('input', this).on('keyup change', function () {
+                    if (dataTable.column(i).search() !== this.value) {
+                        $('#TenantsTableFilter').val(this.value);
+                        dataTable.draw();
+                    }
+                });
+            }
         });
 
         var dataTable = _$tenantsTable.DataTable({
             paging: true,
             serverSide: true,
             processing: true,
+            TenaorderCellsTop: true,
+            fixedHeader: true,
             listAction: {
                 ajaxFunction: _tenantService.getTenants,
                 inputFilter: function () {
@@ -347,6 +349,6 @@
             getTenants();
         });
 
-        _$tenantsTableFilter.focus();
+        $('#TenantsTableFilter').focus();
     });
 })();

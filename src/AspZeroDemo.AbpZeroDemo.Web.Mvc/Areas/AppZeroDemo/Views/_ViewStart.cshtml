@@ -1,0 +1,5 @@
+﻿@using AspZeroDemo.AbpZeroDemo.UiCustomization.Dto
+@{
+    UiCustomizationSettingsDto theme = await GetTheme();
+    Layout = "~/Areas/AppZeroDemo/Views/Layout/" + theme.BaseSettings.Theme + "/_Layout.cshtml";
+}

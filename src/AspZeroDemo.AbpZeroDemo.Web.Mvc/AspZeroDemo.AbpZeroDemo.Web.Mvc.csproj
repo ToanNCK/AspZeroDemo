@@ -1,0 +1,217 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <Import Project="..\..\common.props"></Import>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>AspZeroDemo.AbpZeroDemo.Web.Mvc</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>AspZeroDemo.AbpZeroDemo.Web.Mvc</PackageId>
+    <UserSecretsId>AspZeroDemo-AbpZeroDemo-894FDFC1-6482-4A56-926A-3C46C9FE0329</UserSecretsId>
+    <RootNamespace>AspZeroDemo.AbpZeroDemo.Web</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>3.8</TypeScriptToolsVersion>
+    <PreserveCompilationReferences>true</PreserveCompilationReferences>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="App_Data\**" />
+    <Content Remove="App_Data\**" />
+    <EmbeddedResource Remove="App_Data\**" />
+    <None Remove="App_Data\**" />
+    <Content Update="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoQuickThemeSelectComponent\Default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoLanguageSwitch\Default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoChatToggler\Default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoUserMenu\Default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoRecentNotifications\Default.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme10\js\settings.min.js">
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme11\js\settings.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme11\js\settings.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme2\js\settings.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme2\js\settings.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme3\js\settings.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme3\js\settings.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme4\js\settings.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme4\js\settings.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme5\js\settings.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme5\js\settings.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme6\js\settings.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme6\js\settings.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme7\js\settings.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme7\js\settings.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme8\js\settings.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme8\js\settings.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme9\js\settings.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\metronic\themes\theme9\js\settings.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>settings.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\swagger\ui\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\swagger\ui\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="wwwroot\Plugins\.gitkeep" />
+    <None Update="Dockerfile">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Update="wwwroot\**\*;Areas\**\*;Views\**\*">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspZeroDemo.AbpZeroDemo.Web.Core\AspZeroDemo.AbpZeroDemo.Web.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Abp" Version="5.10.1" />
+    <PackageReference Include="Abp.Castle.Log4Net" Version="5.10.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="3.1.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Analyzers" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\AppZeroDemo\Views\Shared\Themes\Theme10\Components" />
+    <Folder Include="Areas\AppZeroDemo\Views\Shared\Themes\Theme11\Components" />
+    <Folder Include="Areas\AppZeroDemo\Views\Shared\Themes\Theme4\Components" />
+    <Folder Include="Areas\AppZeroDemo\Views\Shared\Themes\Theme5\Components" />
+    <Folder Include="Areas\AppZeroDemo\Views\Shared\Themes\Theme6\Components" />
+    <Folder Include="Areas\AppZeroDemo\Views\Shared\Themes\Theme7\Components" />
+    <Folder Include="Areas\AppZeroDemo\Views\Shared\Themes\Theme8\Components" />
+    <Folder Include="Areas\AppZeroDemo\Views\Shared\Themes\Theme9\Components" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme12Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme12Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme9Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme9Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoDefaultBrand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoDefaultFooter\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme2Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme2Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme3Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme3Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme4Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme4Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme5Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme5Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme6Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme6Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme7Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme7Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme8Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme8Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme10Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme10Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme11Brand\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTheme11Footer\Default.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Layout\Theme12\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\Common\Styles\Themes\theme12\datatables-rtl.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\Common\Styles\Themes\theme12\datatables-rtl.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\Common\Styles\Themes\theme12\datatables.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\Common\Styles\Themes\theme12\datatables.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\Common\Styles\Themes\theme12\metronic-customize.less" />
+    <_ContentIncludedByDefault Remove="wwwroot\Common\Styles\Themes\theme12\metronic-customize.min.css" />
+    <_ContentIncludedByDefault Remove="Areas\AppZeroDemo\Views\Shared\Components\AppZeroDemoTopBar\Default.cshtml" />
+  </ItemGroup>
+
+</Project>

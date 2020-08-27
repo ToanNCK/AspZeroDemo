@@ -1,0 +1,10 @@
+﻿@using AspZeroDemo.AbpZeroDemo.Web.Areas.AppZeroDemo.Models.Layout
+@using AspZeroDemo.AbpZeroDemo.Web.Areas.AppZeroDemo.Views.Shared.Components.AppZeroDemoLogo
+@model HeaderViewModel
+@{
+    Layout = null;
+    var theme = await GetTheme();
+}
+<a href="@Url.Action("Index", "Home", new {area = string.Empty})" class="brand-logo">
+    @await Component.InvokeAsync(typeof(AppZeroDemoLogoViewComponent), new {LogoSkin = "light-sm"})
+</a>

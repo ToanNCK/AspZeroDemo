@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props"></Import>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>AspZeroDemo.AbpZeroDemo.Application</AssemblyName>
+    <PackageId>AspZeroDemo.AbpZeroDemo.Application</PackageId>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>AspZeroDemo.AbpZeroDemo</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Abp.EntityFrameworkCore.EFPlus" Version="5.10.1" />
+    <PackageReference Include="NPOI" Version="2.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspZeroDemo.AbpZeroDemo.Application.Shared\AspZeroDemo.AbpZeroDemo.Application.Shared.csproj" />
+    <ProjectReference Include="..\AspZeroDemo.AbpZeroDemo.Core\AspZeroDemo.AbpZeroDemo.Core.csproj" />
+    <ProjectReference Include="..\AspZeroDemo.AbpZeroDemo.EntityFrameworkCore\AspZeroDemo.AbpZeroDemo.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
+</Project>

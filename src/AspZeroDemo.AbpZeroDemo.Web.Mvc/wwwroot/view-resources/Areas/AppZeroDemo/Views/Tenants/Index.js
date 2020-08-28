@@ -5,13 +5,15 @@
         var _$tenantsTable = $("#TenantsTable");
         //var $('#TenantsTableFilter') = $('#TenantsTableFilter');
         var _$tenantsFormFilter = $('#TenantsFormFilter');
+        var _$tenantsFormFilterBtn = $('#TenantsFormFilterBtn');
         var _$subscriptionEndDateRangeActive = $("#TenantsTable_SubscriptionEndDateRangeActive");
         var _$subscriptionEndDateRange = _$tenantsFormFilter.find("input[name='SubscriptionEndDateRange']");
         var _$creationDateRangeActive = $("#TenantsTable_CreationDateRangeActive");
         var _$creationDateRange = _$tenantsFormFilter.find("input[name='CreationDateRange']");
-        var _$refreshButton = _$tenantsFormFilter.find("button[name='RefreshButton']");
+        var _$refreshButton = _$tenantsFormFilterBtn.find("button[name='RefreshButton']");
         var _$editionDropdown = _$tenantsFormFilter.find("#EditionDropdown");
         var _entityTypeFullName = 'AspZeroDemo.AbpZeroDemo.MultiTenancy.Tenant';
+        var _$removeFinlterAllButton = _$tenantsFormFilterBtn.find("button[name='RemoveLocAll']");
 
         var _permissions = {
             create: abp.auth.hasPermission('Pages.Tenants.Create'),
@@ -263,7 +265,6 @@
                 }
             ],
             initComplete: function () {
-	            //setLblFileter();
                 $('#TenantsTable thead tr:eq(1) th').each(function (i) {
                     if (i === 0) {
                         $(this).css('display', 'none');
@@ -380,5 +381,18 @@
 		        }
 	        });
         }
+
+        _$removeFinlterAllButton.click(function () {
+            _$tenantsFormFilter.find('input, select').each(function () {
+                if (!$(this).hasClass('edited')) {
+                    $(this).val('');
+                } else {
+                    $(this).val('-1');
+                }
+            });
+
+            dataTable.draw();
+        });
+
     });
 })();
